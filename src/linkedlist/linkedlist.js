@@ -1,0 +1,134 @@
+import { Node } from "./model";
+import { defaultEquals } from "./utils";
+
+export class LinkedList {
+  constructor(equalsFns = defaultEquals) {
+    this.equalsFns = equalsFns;
+    this.head = null;
+    this.count = 0;
+  }
+
+  add(element) {
+    const node = new Node(element);
+
+    if (this.head === null) {
+      this.head = node;
+    } else {
+      let currentNode = this.head;
+      while (currentNode.next !== null) {
+        currentNode = currentNode.next;
+      }
+      currentNode.next = node;
+    }
+
+    this.count++;
+  }
+
+  _isIndexWithinBound(index) {
+    return index >= 0 && index <= this.count;
+  }
+
+  getNodeAt(index) {
+    if (this._isIndexWithinBound(index)) {
+      let currentNode = this.head;
+      for (let i = 0; i < index && currentNode !== null; i++) {
+        currentNode = currentNode.next;
+      }
+      return currentNode;
+    }
+    return undefined;
+  }
+
+  insertAt(element, index) {
+    if (this._isIndexWithinBound(index)) {
+      const node = new Node(element);
+
+      if (index === 0) {
+        const currentNode = this.head;
+        node.next = currentNode;
+        this.head = node;
+        // [node.next, this.head] = [this.head, node];
+      } else {
+        const previousNode = this.getNodeAt(index - 1);
+        node.next = previousNode.next;
+        previousNode.next = node;
+        // [node.next, previousNode.next] = [previousNode.next, node];
+      }
+
+      this.count++;
+
+      return true;
+    }
+    return false;
+  }
+
+  addFirst(element) {
+    return this.insertAt(element, 0);
+  }
+
+  addLast(element) {
+    return this.insertAt(element, this.count);
+  }
+
+  removeAt(index) {
+    if (this._isIndexWithinBound(index)) {
+      let currentNode = this.head;
+      if (index === 0) {
+        this.head = currentNode.next;
+      } else {
+        const previousNode = this.getNodeAt(index - 1);
+        currentNode = previousNode.next;
+        previousNode.next = currentNode.next;
+      }
+      this.count--;
+      return currentNode.data;
+    }
+    return undefined;
+  }
+
+  indexOf(element) {
+    let currentNode = this.head;
+    for (let i = 0; i < this.count && currentNode != null; i++) {
+      if (this.equalsFns(element, currentNode.data)) {
+        return i;
+      }
+      currentNode = currentNode.next;
+    }
+
+    return -1;
+  }
+
+  remove(element) {
+    const elementIndex = this.indexOf(element);
+    return this.removeAt(elementIndex);
+  }
+
+  isEmpty() {
+    return this.size() === 0;
+  }
+
+  size() {
+    return this.count;
+  }
+
+  getHead() {
+    return this.head;
+  }
+
+  clear() {
+    this.head = null;
+    this.count = 0;
+  }
+
+  *[Symbol.iterator]() {
+    let currentNode = this.head;
+    while (currentNode) {
+      yield currentNode.data;
+      currentNode = currentNode.next;
+    }
+  }
+
+  toString() {
+    return `[${[...this].toString()}]`;
+  }
+}
