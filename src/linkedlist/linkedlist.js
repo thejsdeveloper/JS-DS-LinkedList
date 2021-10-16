@@ -2,8 +2,8 @@ import { Node } from "./model";
 import { defaultEquals } from "./utils";
 
 export class LinkedList {
-  constructor(equalsFns = defaultEquals) {
-    this.equalsFns = equalsFns;
+  constructor(equals = defaultEquals) {
+    this.equals = equals;
     this.head = null;
     this.count = 0;
   }
@@ -94,7 +94,7 @@ export class LinkedList {
   indexOf(element) {
     let currentNode = this.head;
     for (let i = 0; i < this.count && currentNode != null; i++) {
-      if (this.equalsFns(element, currentNode.data)) {
+      if (this.equals(element, currentNode.data)) {
         return i;
       }
       currentNode = currentNode.next;
