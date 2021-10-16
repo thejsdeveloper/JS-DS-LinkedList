@@ -14,25 +14,25 @@ To know in detail please refer to my [blog](https://dev.to/thejsdeveloper/js-ds-
 * Clone the repository
 
 ```sh
-$ git clone https://github.com/thejsdeveloper/JS-DS-LinkedList.git
+git clone https://github.com/thejsdeveloper/JS-DS-LinkedList.git
 ```
 
 * Enter into `JS-DS-LinkedList` directory
 
 ```sh 
-$ cd JS-DS-LinkedList
+cd JS-DS-LinkedList
 ```
 
 * To Run 
 
 ```sh
-$ yarn run 
+yarn run 
 ```
 
 * To run Test Cases 
 
 ```sh
-$ yarn test
+yarn test
 ```
 
 ### Instructions 
