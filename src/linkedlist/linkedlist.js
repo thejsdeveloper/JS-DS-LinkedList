@@ -10,8 +10,7 @@ export class LinkedList {
 
   add(element) {
     const node = new Node(element);
-
-    if (this.head === null) {
+    if (this.size == 0) {
       this.head = node;
     } else {
       let currentNode = this.head;
@@ -64,7 +63,11 @@ export class LinkedList {
 
       return true;
     }
-    return false;
+    return new Error(
+      `Provided index: ${index} is not within bounds[${0} - ${
+        this.size
+      }] of LinkedList`
+    );
   }
 
   addFirst(element) {
@@ -109,10 +112,10 @@ export class LinkedList {
   }
 
   isEmpty() {
-    return this.size() === 0;
+    return this.size === 0;
   }
 
-  size() {
+  get size() {
     return this.count;
   }
 
@@ -121,7 +124,7 @@ export class LinkedList {
   }
 
   getTail() {
-    return this.getAt(this.size() - 1);
+    return this.getAt(this.size - 1);
   }
 
   clear() {
