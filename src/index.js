@@ -50,7 +50,7 @@ console.log("insertAt element 17 pos 1 => ", list.insertAt(17, 1));
 console.log("list.toString() => ", list.toString());
 console.log(
   "insertAt element 18 pos list.size() => ",
-  list.insertAt(18, list.size())
+  list.insertAt(18, list.size)
 );
 console.log("list.toString() => ", list.toString());
 console.log("remove element 16 => ", list.remove(16));

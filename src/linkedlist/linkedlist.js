@@ -63,7 +63,7 @@ export class LinkedList {
 
       return true;
     }
-    return new Error(
+    throw new Error(
       `Provided index: ${index} is not within bounds[${0} - ${
         this.size
       }] of LinkedList`
