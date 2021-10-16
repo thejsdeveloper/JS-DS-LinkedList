@@ -26,7 +26,7 @@ cd JS-DS-LinkedList
 * To Run 
 
 ```sh
-yarn run 
+yarn start 
 ```
 
 * To run Test Cases 
