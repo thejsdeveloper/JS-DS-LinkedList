@@ -28,7 +28,7 @@ export class LinkedList {
     return index >= 0 && index <= this.count;
   }
 
-  getNodeAt(index) {
+  _getNodeAt(index) {
     if (this._isIndexWithinBound(index)) {
       let currentNode = this.head;
       for (let i = 0; i < index && currentNode !== null; i++) {
@@ -37,6 +37,11 @@ export class LinkedList {
       return currentNode;
     }
     return undefined;
+  }
+
+  getAt(index) {
+    const node = this._getNodeAt(index);
+    return node && node.data;
   }
 
   insertAt(element, index) {
@@ -49,7 +54,7 @@ export class LinkedList {
         this.head = node;
         // [node.next, this.head] = [this.head, node];
       } else {
-        const previousNode = this.getNodeAt(index - 1);
+        const previousNode = this._getNodeAt(index - 1);
         node.next = previousNode.next;
         previousNode.next = node;
         // [node.next, previousNode.next] = [previousNode.next, node];
@@ -76,7 +81,7 @@ export class LinkedList {
       if (index === 0) {
         this.head = currentNode.next;
       } else {
-        const previousNode = this.getNodeAt(index - 1);
+        const previousNode = this._getNodeAt(index - 1);
         currentNode = previousNode.next;
         previousNode.next = currentNode.next;
       }
@@ -113,6 +118,10 @@ export class LinkedList {
 
   getHead() {
     return this.head;
+  }
+
+  getTail() {
+    return this.getAt(this.size() - 1);
   }
 
   clear() {
