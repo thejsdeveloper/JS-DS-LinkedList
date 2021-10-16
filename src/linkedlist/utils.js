@@ -1,3 +1,3 @@
-export const defaultEquals = (a, b) => {
-  return a === b;
+export const defaultEquals = (nodeA, nodeB) => {
+  return nodeA === nodeB;
 };
