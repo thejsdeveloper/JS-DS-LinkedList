@@ -10,7 +10,7 @@ export class LinkedList {
 
   add(element) {
     const node = new Node(element);
-    if (this.size == 0) {
+    if (this.size === 0) {
       this.head = node;
     } else {
       let currentNode = this.head;
