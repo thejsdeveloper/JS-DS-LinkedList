@@ -75,7 +75,7 @@ export class LinkedList {
   }
 
   addLast(element) {
-    return this.insertAt(element, this.count);
+    return this.add(element);
   }
 
   removeAt(index) {
