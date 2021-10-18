@@ -1,4 +1,4 @@
-# JS-DS: LinkedList
+# JS-DS: LinkedList- JavaScript Implementation 
 
 ![linkedlist-js-ds](https://github.com/thejsdeveloper/JS-DS-LinkedList/blob/main/src/assets/images/linkedlist.png)
 
@@ -6,7 +6,7 @@
 
 This repository contains implementation of LinkedList in JavaScript.
 
-To know in detail please refer to my [blog](https://dev.to/thejsdeveloper/js-ds-linkedlist-2del-temp-slug-3261853?preview=9f2fca9e37da7251cef925288e431843b65ce5343027548fb6f0dda835f8b383e64728d93b58b6e32f7b8750da0bbf1083fe9f95dc84199c2974c41c) in JS-DS series.
+To know in detail please refer to my [blog](https://dev.to/xenoxdev/js-ds-linkedlist-a-javascript-implementation-375j) in JS-DS series.
 
 ### Setup
 
