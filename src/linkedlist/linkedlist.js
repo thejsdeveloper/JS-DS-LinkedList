@@ -79,8 +79,8 @@ export class LinkedList {
   }
 
   removeAt(index) {
-    if (this._isIndexWithinBound(index)) {
-      let currentNode = this.head;
+    let currentNode = this.head;
+    if (this._isIndexWithinBound(index) && currentNode) {
       if (index === 0) {
         this.head = currentNode.next;
       } else {
